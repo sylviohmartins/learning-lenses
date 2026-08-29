@@ -46,4 +46,12 @@ test("reduced motion preserva a experiência", async ({ page }) => {
     ),
     "reflow equivalente a zoom 200% em 1280px",
   ).toBe(false);
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/settings");
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    ),
+    "reflow da página de Ajustes em 320px",
+  ).toBe(false);
 });

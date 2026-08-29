@@ -1,7 +1,26 @@
+import { useState } from "react";
 import { useApp } from "@/app/providers/AppProvider";
 import { Button } from "@/design-system/components/Button";
+import {
+  createResearchExport,
+  downloadResearchExport,
+  participantCodeSchema,
+} from "@/research/export";
 export function SettingsPage() {
   const { state, setWeeklyTarget, setReducedMotion, setClockOffset, resetAll } = useApp();
+  const [participantCode, setParticipantCode] = useState("");
+  const [exportStatus, setExportStatus] = useState("");
+
+  const exportEvidence = () => {
+    const parsed = participantCode ? participantCodeSchema.safeParse(participantCode) : undefined;
+    if (parsed && !parsed.success) {
+      setExportStatus(parsed.error.issues[0]?.message ?? "Código inválido.");
+      return;
+    }
+    const filename = downloadResearchExport(createResearchExport(state, parsed?.data));
+    setExportStatus(`Arquivo baixado: ${filename}`);
+  };
+
   return (
     <div className="page settings-page">
       <header className="page-header">
@@ -61,6 +80,36 @@ export function SettingsPage() {
           </div>
         </section>
       )}
+      <section>
+        <h2>Exportar evidências</h2>
+        <p>
+          Baixe um JSON pseudônimo com resultados, eventos e evolução. Textos digitados e sua
+          preferência de movimento não entram no arquivo.
+        </p>
+        <label className="field-label" htmlFor="participant-code">
+          Código do participante (opcional)
+        </label>
+        <input
+          id="participant-code"
+          value={participantCode}
+          maxLength={32}
+          autoComplete="off"
+          aria-describedby="participant-code-help"
+          onChange={(event) => {
+            setParticipantCode(event.target.value);
+            setExportStatus("");
+          }}
+        />
+        <p id="participant-code-help" className="field-help">
+          Use apenas o código fornecido pelo estudo, nunca nome, e-mail ou CPF.
+        </p>
+        <Button variant="secondary" onClick={exportEvidence}>
+          Baixar dados do piloto
+        </Button>
+        <p id="export-status" className="status-message" role="status" aria-live="polite">
+          {exportStatus}
+        </p>
+      </section>
       <section className="danger-zone">
         <h2>Dados locais</h2>
         <p>O P0 guarda progresso apenas neste navegador.</p>

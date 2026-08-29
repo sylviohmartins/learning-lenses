@@ -11,8 +11,8 @@
 | Install                    | `pnpm install`                         | PASS — lockfile concluído; foi necessário usar o CA do sistema Windows, sem desabilitar TLS |
 | Lint                       | `pnpm lint`                            | PASS — 0 erros, 0 warnings                                                                  |
 | Typecheck                  | `pnpm typecheck`                       | PASS                                                                                        |
-| Unit/component/integration | `pnpm test:run`                        | PASS — 9 arquivos, 37 testes                                                                |
-| E2E/browser                | `pnpm test:e2e`                        | PASS — 8 fluxos Chromium                                                                    |
+| Unit/component/integration | `pnpm test:run`                        | PASS — 10 arquivos, 39 testes                                                               |
+| E2E/browser                | `pnpm test:e2e`                        | PASS — 9 fluxos Chromium                                                                    |
 | Build                      | `pnpm build`                           | PASS                                                                                        |
 | Axe                        | incluído em `pnpm test:e2e`            | PASS — sem violações serious/critical conhecidas nas telas auditadas                        |
 | Supply chain (produção)    | `pnpm audit --prod --audit-level high` | PASS — nenhuma vulnerabilidade conhecida                                                    |
@@ -25,6 +25,7 @@
 - erro → misconception → evidence → review agendada;
 - time travel +1d → review devida → resposta → mastery/próximo intervalo;
 - fluxo inicial sem mouse;
+- exportação pseudônima/versionada de evidências sem texto livre;
 - storage válido, migração V0→V1 e recuperação de corrupção;
 - scoring de escolha, boolean, ordem, matching e resposta curta;
 - mastery weights, prior, gates, níveis e consolidated;
@@ -75,10 +76,12 @@ Não foi executada uma sessão com leitor de tela humano; portanto o relatório 
 4. Fluxo completo encontrou troca prematura entre assessments → estado ativo estabilizado por episódio.
 5. Axe encontrou contraste transitório durante fade de opacidade → opacidade removida → axe PASS.
 6. Visual QA encontrou CTA/hero/toast/data/foco → responsividade, z-index, UTC e navegação corrigidos.
+7. A nova exportação revelou overflow em Ajustes com scrollbar a 320px → `min-width` global removido e
+   regressão de reflow adicionada.
 
 ## Performance
 
-Build final: JavaScript 384,38 kB (117,08 kB gzip), CSS 21,83 kB (5,57 kB gzip) e HTML 0,67 kB (0,40 kB gzip). Não há imagens hero, fontes remotas bloqueantes ou biblioteca de estado. Analytics é limitado a 300 eventos.
+Build final: JavaScript 387,65 kB (118,28 kB gzip), CSS 21,96 kB (5,61 kB gzip) e HTML 0,67 kB (0,40 kB gzip). Não há imagens hero, fontes remotas bloqueantes ou biblioteca de estado. Analytics é limitado a 300 eventos.
 
 ## Known issues / blocked
 

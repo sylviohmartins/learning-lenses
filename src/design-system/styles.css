@@ -34,7 +34,6 @@ html {
 }
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
   background: var(--background);
 }
@@ -1151,6 +1150,18 @@ textarea {
   display: block;
   margin-bottom: 7px;
   font-weight: 750;
+}
+.field-help,
+.status-message {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.field-help {
+  margin: 7px 0 14px;
+}
+.status-message {
+  min-height: 1.4em;
+  margin: 10px 0 0;
 }
 .dev-panel {
   padding: 20px !important;

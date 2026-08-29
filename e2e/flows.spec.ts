@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
 import { completeEpisodeOne, completeWholeModule, startModule } from "./helpers";
 
@@ -91,4 +92,26 @@ test("E2E 6 — fluxo inicial apenas com teclado", async ({ page }) => {
   await page.getByRole("button", { name: "Conferir resposta" }).focus();
   await page.keyboard.press("Enter");
   await expect(page.getByTestId("feedback")).toBeVisible();
+});
+
+test("E2E 7 — exportação do piloto é pseudônima e versionada", async ({ page }) => {
+  await startModule(page);
+  await completeEpisodeOne(page);
+  await page.getByRole("link", { name: "Configurações" }).click();
+  await page.getByLabel("Código do participante").fill("P001");
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Baixar dados do piloto" }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^fuxico-fiscal-pilot-P001-/);
+
+  const path = await download.path();
+  if (!path) throw new Error("O arquivo de evidências não foi disponibilizado pelo navegador.");
+  const exported = JSON.parse(await readFile(path, "utf8"));
+  expect(exported.exportSchemaVersion).toBe(1);
+  expect(exported.participantCode).toBe("P001");
+  expect(exported.application.simulationOffsetDays).toBe(0);
+  expect(exported.learning.responses).toHaveLength(1);
+  expect(exported.learning.responses[0]).not.toHaveProperty("response");
+  await expect(page.locator("#export-status")).toContainText("Arquivo baixado");
 });

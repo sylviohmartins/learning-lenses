@@ -120,6 +120,10 @@ Para resetar pelo produto: **Ajustes → Resetar todos os dados**. Para reset ma
 
 O controle de viagem no tempo aparece apenas em desenvolvimento e permite simular +1/+3/+7/+21 dias para exercitar revisões.
 
+Em **Ajustes → Exportar evidências**, o participante ou pesquisador pode baixar um JSON versionado
+com resultados, mastery, revisões e eventos locais. A exportação omite textos livres e preferências
+de acessibilidade; o código do participante é opcional e deve ser pseudônimo.
+
 ## Relatórios
 
 - [CONTENT_AUDIT.md](./CONTENT_AUDIT.md) — auditoria jurídica/editorial;
@@ -130,3 +134,5 @@ O controle de viagem no tempo aparece apenas em desenvolvimento e permite simula
   validação humana e formulários de evidência.
 - [docs/research/USABILITY_PROTOCOL.md](./docs/research/USABILITY_PROTOCOL.md) — roteiro e critérios
   para dois ciclos de usabilidade.
+- [docs/research/LEARNING_PILOT.md](./docs/research/LEARNING_PILOT.md) — desenho do piloto, rubricas e
+  regras de decisão.
