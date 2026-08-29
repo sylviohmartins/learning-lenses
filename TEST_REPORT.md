@@ -1,6 +1,7 @@
 # Relatório de testes — P0
 
-**Ambiente:** Windows, Node 24.13.1, pnpm 10.5.2, Chromium 151 via Playwright.  
+**Ambiente:** Windows, Node 24.13.1, pnpm 10.5.2, Chromium 151 via Playwright.
+
 **Data:** 29/08/2026.
 
 ## Gates automatizados

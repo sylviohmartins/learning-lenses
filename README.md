@@ -126,3 +126,5 @@ O controle de viagem no tempo aparece apenas em desenvolvimento e permite simula
 - [TEST_REPORT.md](./TEST_REPORT.md) — comandos e resultados reais;
 - [DECISIONS.md](./DECISIONS.md) — decisões materiais de implementação;
 - [FUTURE_IDEAS.md](./FUTURE_IDEAS.md) — ideias deliberadamente fora do P0.
+- [docs/validation/HUMAN_VALIDATION.md](./docs/validation/HUMAN_VALIDATION.md) — gate de
+  validação humana e formulários de evidência.

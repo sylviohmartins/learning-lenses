@@ -1,7 +1,9 @@
 # Auditoria de conteúdo — Módulo 1
 
-**Verificação editorial:** 29/08/2026  
-**Escopo:** introdução educacional à Reforma Tributária do Consumo.  
+**Verificação editorial:** 29/08/2026
+
+**Escopo:** introdução educacional à Reforma Tributária do Consumo.
+
 **Limite:** verificação editorial controlada; não é certificação jurídica nem aconselhamento profissional.
 
 ## Fontes oficiais verificadas
