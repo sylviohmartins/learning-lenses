@@ -128,3 +128,5 @@ O controle de viagem no tempo aparece apenas em desenvolvimento e permite simula
 - [FUTURE_IDEAS.md](./FUTURE_IDEAS.md) — ideias deliberadamente fora do P0.
 - [docs/validation/HUMAN_VALIDATION.md](./docs/validation/HUMAN_VALIDATION.md) — gate de
   validação humana e formulários de evidência.
+- [docs/research/USABILITY_PROTOCOL.md](./docs/research/USABILITY_PROTOCOL.md) — roteiro e critérios
+  para dois ciclos de usabilidade.
