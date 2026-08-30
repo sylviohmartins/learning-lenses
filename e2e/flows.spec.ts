@@ -38,7 +38,7 @@ test("E2E 3 — reload retoma no episódio correto", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "CBS e IBS são gêmeos?" })).toBeVisible();
   await page.reload();
   await expect(page.getByRole("heading", { name: "CBS e IBS são gêmeos?" })).toBeVisible();
-  await page.getByRole("link", { name: "FUXICO FISCAL" }).click();
+  await page.getByRole("link", { name: /Learning Lenses/ }).click();
   await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
 });
 

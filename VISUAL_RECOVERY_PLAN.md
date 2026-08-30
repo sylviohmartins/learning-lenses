@@ -1,7 +1,7 @@
 # Plano persistente — P0 Visual Recovery
 
 - Última atualização: 2026-08-29
-- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 1 validada; Etapa 2 em preparação**
+- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 2 validada; Etapa 3 em preparação**
 - Branch: `main`
 - Baseline funcional: `b8ed404`
 - UI alterada nesta fase: **não**
@@ -357,6 +357,20 @@ Antes de propagar e antes do ship, todos precisam passar:
 - validação: lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS e accessibility E2E 2/2
   PASS;
 - próxima etapa: Home proving ground.
+
+### 2026-08-29 — Etapa 2: Home proving ground
+
+- hero monumental, palavra colorida, expediente e geometria decorativa removidos;
+- Home inicial reorganizada em propósito, ação, duração e três provas do módulo;
+- Home de retorno prioriza próxima etapa, progresso, revisão, ritmo e Dossiê;
+- headings da Home migrados para sans funcional e escala máxima de 4 rem;
+- ação principal ficou totalmente visível em 320×568 após ajuste de ritmo vertical;
+- o teste por teclado revelou que a navegação no header antecedia o CTA; ordem do documento restaurada
+  sem mudar a posição visual;
+- sete viewports validados pelo visual E2E, sem overflow; screenshots operacionais atualizados;
+- validação: lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS, visual E2E 1/1 e
+  seleção de fluxos/axe 4/4 PASS;
+- próxima etapa: Episode proving ground.
 
 ## Decisão do Plan Gate
 

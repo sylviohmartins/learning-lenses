@@ -21,7 +21,6 @@ export function AppShell() {
           <span className="wordmark__platform">Learning Lenses</span>
           <span className="wordmark__module">Fuxico Fiscal</span>
         </Link>
-        <BottomNavigation />
         <Link className="settings-link" to="/settings" aria-label="Configurações">
           <Icon name="settings" />
           <span className="settings-link__label">Ajustes</span>
@@ -36,6 +35,7 @@ export function AppShell() {
       <main id="conteudo" className={inEpisode ? "main main--episode" : "main"}>
         <Outlet />
       </main>
+      <BottomNavigation />
       <AchievementToast />
     </div>
   );
