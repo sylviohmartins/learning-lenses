@@ -130,6 +130,14 @@ de acessibilidade; o código do participante é opcional e deve ser pseudônimo.
 - [TEST_REPORT.md](./TEST_REPORT.md) — comandos e resultados reais;
 - [DECISIONS.md](./DECISIONS.md) — decisões materiais de implementação;
 - [FUTURE_IDEAS.md](./FUTURE_IDEAS.md) — ideias deliberadamente fora do P0.
+- [PRODUCT.md](./PRODUCT.md) — contrato de produto e separação Product × Subject × Lens;
+- [DESIGN.md](./DESIGN.md) — direção e contrato visual propostos no Plan Gate;
+- [DESIGN_TOOLING_AUDIT.md](./DESIGN_TOOLING_AUDIT.md) — procedência, risco e uso real do toolchain;
+- [DESIGN_BENCHMARK.md](./DESIGN_BENCHMARK.md) — referências e princípios extraídos sem copiar telas;
+- [DESIGN_AUDIT_BEFORE.md](./DESIGN_AUDIT_BEFORE.md) — diagnóstico visual baseado no runtime e nas
+  capturas BEFORE;
+- [VISUAL_RECOVERY_PLAN.md](./VISUAL_RECOVERY_PLAN.md) — plano persistente, score, riscos, gates e
+  arquivos protegidos;
 - [docs/validation/HUMAN_VALIDATION.md](./docs/validation/HUMAN_VALIDATION.md) — gate de
   validação humana e formulários de evidência.
 - [docs/research/USABILITY_PROTOCOL.md](./docs/research/USABILITY_PROTOCOL.md) — roteiro e critérios
