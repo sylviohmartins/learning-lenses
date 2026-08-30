@@ -8,10 +8,13 @@ export type IconName =
   | "settings"
   | "arrow-right"
   | "arrow-left"
+  | "arrow-up"
+  | "arrow-down"
   | "external-link"
   | "close"
   | "check"
-  | "info";
+  | "info"
+  | "sparkle";
 
 const paths: Record<IconName, ReactNode> = {
   home: (
@@ -46,6 +49,8 @@ const paths: Record<IconName, ReactNode> = {
   ),
   "arrow-right": <path d="M5 12h14M14 7l5 5-5 5" />,
   "arrow-left": <path d="M19 12H5M10 7l-5 5 5 5" />,
+  "arrow-up": <path d="M12 19V5M7 10l5-5 5 5" />,
+  "arrow-down": <path d="M12 5v14M7 14l5 5 5-5" />,
   "external-link": (
     <>
       <path d="M14 4h6v6M20 4l-9 9" />
@@ -60,6 +65,7 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M12 11v6M12 7.5v.2" />
     </>
   ),
+  sparkle: <path d="m12 3 1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6z" />,
 };
 
 type IconProps = Omit<SVGAttributes<SVGSVGElement>, "children"> & {

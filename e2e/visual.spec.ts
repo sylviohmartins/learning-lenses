@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
-import { completeEpisodeOne, reset, startModule } from "./helpers";
+import { reset, startModule } from "./helpers";
 
 const viewports = [
   { width: 320, height: 568 },
@@ -32,10 +32,47 @@ test("captura e valida os sete viewports obrigatórios", async ({ page }) => {
     await page
       .getByRole("region", { name: "Qual parte parece mais suspeita?" })
       .scrollIntoViewIfNeeded();
+    await page.evaluate(() => window.scrollBy(0, -76));
     await page.screenshot({
       path: `artifacts/screenshots/interaction-${viewport.width}x${viewport.height}.png`,
     });
-    await completeEpisodeOne(page);
+    const interactionBefore = await page.locator(".interaction").boundingBox();
+    const actionBefore = await page
+      .getByRole("button", { name: "Conferir resposta" })
+      .evaluate((element) => element.getBoundingClientRect().top + window.scrollY);
+    await page.getByRole("button", { name: "Conferir resposta" }).click();
+    await expect(page.getByRole("alert")).toContainText("Escolha ou escreva uma resposta");
+    await page.screenshot({
+      path: `artifacts/screenshots/interaction-error-${viewport.width}x${viewport.height}.png`,
+    });
+    await page
+      .getByRole("radio", { name: /acho que sei/ })
+      .locator("..")
+      .click();
+    await expect(page.getByRole("alert")).toHaveCount(0);
+    await page.getByRole("radio", { name: "Tudo foi trocado em 2026." }).locator("..").click();
+    const interactionSelected = await page.locator(".interaction").boundingBox();
+    const actionSelected = await page
+      .getByRole("button", { name: "Conferir resposta" })
+      .evaluate((element) => element.getBoundingClientRect().top + window.scrollY);
+    expect(interactionSelected?.height).toBeCloseTo(interactionBefore?.height ?? 0, 1);
+    expect(actionSelected).toBeCloseTo(actionBefore, 1);
+    await page.screenshot({
+      path: `artifacts/screenshots/interaction-selected-${viewport.width}x${viewport.height}.png`,
+    });
+    await page.getByRole("button", { name: "Quero uma pista" }).click();
+    await page.screenshot({
+      path: `artifacts/screenshots/interaction-hint-${viewport.width}x${viewport.height}.png`,
+    });
+    await page.getByRole("button", { name: "Conferir resposta" }).click();
+    await expect(page.getByTestId("feedback")).toBeVisible();
+    await page.screenshot({
+      path: `artifacts/screenshots/interaction-feedback-${viewport.width}x${viewport.height}.png`,
+    });
+    await page.getByRole("button", { name: /Continuar/ }).click();
+    await expect(
+      page.getByRole("heading", { name: "A regra, sem telefone sem fio" }),
+    ).toBeVisible();
     await page.getByRole("button", { name: "De onde saiu essa fofoca?" }).click();
     await page.screenshot({
       path: `artifacts/screenshots/source-${viewport.width}x${viewport.height}.png`,

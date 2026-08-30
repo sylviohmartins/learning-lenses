@@ -5,6 +5,7 @@ import { useApp } from "@/app/providers/AppProvider";
 import { Button } from "@/design-system/components/Button";
 import { PredictionChoice } from "@/design-system/components/PredictionChoice";
 import { FeedbackPanel } from "@/design-system/components/FeedbackPanel";
+import { Icon } from "@/design-system/primitives/Icon";
 
 interface Props {
   assessment: Assessment;
@@ -28,8 +29,15 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
     recordInteractionViewed(assessment.id, episodeId);
   }, [assessment.id, episodeId, recordInteractionViewed]);
   useEffect(() => {
-    if (result !== undefined) feedbackRef.current?.focus();
+    if (result !== undefined) {
+      feedbackRef.current?.focus({ preventScroll: true });
+      feedbackRef.current?.scrollIntoView({ block: "center" });
+    }
   }, [result]);
+  const updateResponse = (value: AssessmentResponse) => {
+    setResponse(value);
+    if (error) setError("");
+  };
   const hasResponse =
     typeof response === "string"
       ? response.trim().length > 0
@@ -56,10 +64,13 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
     if (target < 0 || target >= response.length) return;
     const next = [...response];
     [next[index], next[target]] = [next[target]!, next[index]!];
-    setResponse(next);
+    updateResponse(next);
   };
   return (
-    <section className="interaction" aria-labelledby={`prompt-${assessment.id}`}>
+    <section
+      className={`interaction interaction--${assessment.kind}`}
+      aria-labelledby={`prompt-${assessment.id}`}
+    >
       <span className="eyebrow">SUA VEZ</span>
       <h2 id={`prompt-${assessment.id}`}>{assessment.prompt}</h2>
       {assessment.asksConfidence && result === undefined && (
@@ -77,7 +88,10 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
                 type="radio"
                 name={`confidence-${assessment.id}`}
                 checked={confidence === item.value}
-                onChange={() => setConfidence(item.value)}
+                onChange={() => {
+                  setConfidence(item.value);
+                  if (error) setError("");
+                }}
               />
               <span>{item.value}</span>
               {item.label}
@@ -91,7 +105,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
             <PredictionChoice
               choices={assessment.choices ?? []}
               value={typeof response === "string" ? response : undefined}
-              onChange={setResponse}
+              onChange={updateResponse}
               name={assessment.id}
             />
           )}
@@ -109,7 +123,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
                         disabled={index === 0}
                         onClick={() => move(index, -1)}
                       >
-                        ↑
+                        <Icon name="arrow-up" size={19} />
                       </button>
                       <button
                         type="button"
@@ -117,7 +131,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
                         disabled={index === response.length - 1}
                         onClick={() => move(index, 1)}
                       >
-                        ↓
+                        <Icon name="arrow-down" size={19} />
                       </button>
                     </div>
                   </li>
@@ -136,7 +150,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
                       aria-label={`Correspondência para ${left.label}`}
                       value={response[left.id] ?? ""}
                       onChange={(event) =>
-                        setResponse({ ...response, [left.id]: event.target.value })
+                        updateResponse({ ...response, [left.id]: event.target.value })
                       }
                     >
                       <option value="">Selecione</option>
@@ -156,7 +170,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
               <textarea
                 rows={5}
                 value={typeof response === "string" ? response : ""}
-                onChange={(event) => setResponse(event.target.value)}
+                onChange={(event) => updateResponse(event.target.value)}
                 placeholder="Explique com suas palavras…"
               />
             </label>
@@ -188,7 +202,7 @@ export function AssessmentInteraction({ assessment, episodeId, reviewId, onConti
             competenceFeedback={result && confidence === 1}
           />
           <Button onClick={() => onContinue(result)}>
-            Continuar <span aria-hidden="true">→</span>
+            Continuar <Icon name="arrow-right" size={18} />
           </Button>
         </div>
       )}

@@ -1,7 +1,7 @@
 # Plano persistente — P0 Visual Recovery
 
 - Última atualização: 2026-08-29
-- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 3 validada; Etapa 4 em preparação**
+- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 4 validada; Etapa 5 em preparação**
 - Branch: `main`
 - Baseline funcional: `b8ed404`
 - UI alterada nesta fase: **sim, conforme direção aprovada**
@@ -387,6 +387,25 @@ Antes de propagar e antes do ship, todos precisam passar:
   seleção de fluxo/axe/reduced motion 3/3 PASS;
 - conteúdo, fontes, ordem pedagógica, persistência e engine permaneceram intactos;
 - próxima etapa: Assessment proving ground.
+
+### 2026-08-29 — Etapa 4: Assessment proving ground
+
+- interaction deixou de ser um card/formulário pesado e virou uma etapa pedagógica integrada ao fluxo;
+- prompt, confiança, opções, pista, erro, feedback e continuidade receberam uma hierarquia estável;
+- single choice, boolean, order, matching e short text mantiveram comportamento e semântica;
+- estado selecionado troca cor e `box-shadow` sem alterar dimensões; o visual E2E agora prova a ausência
+  de layout shift antes/depois da escolha;
+- erros são limpos ao retomar a resposta e o feedback recebe foco sem animação ou rolagem suave;
+- achievement mobile foi compactado para não cobrir o feedback de aprendizagem, preservando prioridade
+  mastery/feedback sobre XP;
+- setas de ordenação, feedback, continuidade, conquista e dismiss migraram para o SVG local;
+- suíte visual ampliada de 28 para 56 capturas: default, erro, selecionado, pista e feedback nos sete
+  viewports, além de Home, Episode e drawer;
+- navegador real confirmou o Assessment em 320×568, 768×1024 e 1440×900 sem overflow;
+- validação: format PASS, lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS, E2E
+  completo 9/9 PASS (incluindo cinco interaction kinds, avaliação final, teclado, axe e reduced motion);
+- engine, scoring, confidence, fontes, persistência e conteúdo permaneceram intactos;
+- próxima etapa: proving-ground gate e proteções visuais estáveis.
 
 ## Decisão do Plan Gate
 
