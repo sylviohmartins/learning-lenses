@@ -10,8 +10,15 @@ import { ReviewCard } from "./ReviewCard";
 import { scheduleInitialReview } from "@/domain/review/review";
 import { FixedClock } from "@/domain/review/clock";
 import { concepts } from "@/content";
+import { Icon } from "@/design-system/primitives/Icon";
 
 describe("componentes centrais", () => {
+  it("Icon usa SVG coerente e só recebe nome quando necessário", () => {
+    const { rerender } = render(<Icon name="home" data-testid="decorative-icon" />);
+    expect(screen.getByTestId("decorative-icon")).toHaveAttribute("aria-hidden", "true");
+    rerender(<Icon name="info" title="Informação" />);
+    expect(screen.getByRole("img", { name: "Informação" })).toBeInTheDocument();
+  });
   it("PredictionChoice e QuizOption expõem radios nomeados", async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();

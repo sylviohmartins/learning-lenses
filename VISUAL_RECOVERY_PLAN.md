@@ -1,7 +1,7 @@
 # Plano persistente — P0 Visual Recovery
 
 - Última atualização: 2026-08-29
-- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 1 em preparação**
+- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 1 validada; Etapa 2 em preparação**
 - Branch: `main`
 - Baseline funcional: `b8ed404`
 - UI alterada nesta fase: **não**
@@ -344,6 +344,19 @@ Antes de propagar e antes do ship, todos precisam passar:
 - direção congelada: C — Learning Native com disciplina Quiet Premium;
 - Product × Subject × Lens, SVG local, navegação wide em header e gate manual confirmados;
 - implementação liberada a partir da Etapa 1, mantendo validação, commit e push por etapa.
+
+### 2026-08-29 — Etapa 1: foundations, shell e iconografia
+
+- tokens `platform.*` e `lens.*` introduzidos com aliases temporários para propagação segura;
+- wordmark separa plataforma e módulo;
+- navegação mantém bottom bar até 899 px e vira header horizontal a partir de 900 px;
+- Unicode da navegação substituído por primitive SVG local, sem dependência runtime;
+- browser real validado em 320×568, 768×1024 e 1440×900, sem overflow;
+- o browser loop revelou que o toast interceptava Ajustes no novo header; posição corrigida e teste
+  reexecutado;
+- validação: lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS e accessibility E2E 2/2
+  PASS;
+- próxima etapa: Home proving ground.
 
 ## Decisão do Plan Gate
 
