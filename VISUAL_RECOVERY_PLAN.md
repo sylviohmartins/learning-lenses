@@ -1,7 +1,7 @@
 # Plano persistente — P0 Visual Recovery
 
 - Última atualização: 2026-08-29
-- Estado: **PLAN GATE — aguardando aprovação humana**
+- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 1 em preparação**
 - Branch: `main`
 - Baseline funcional: `b8ed404`
 - UI alterada nesta fase: **não**
@@ -338,14 +338,19 @@ Antes de propagar e antes do ship, todos precisam passar:
 - nenhuma alteração visual realizada;
 - próximo evento permitido: feedback/aprovação humana explícita.
 
-## Pedido de decisão no Plan Gate
+### 2026-08-29 — Plan Gate aprovado
 
-Aprovar, rejeitar ou comentar:
+- aprovação explícita recebida: “Aprovo o Plan Gate e a direção C”;
+- direção congelada: C — Learning Native com disciplina Quiet Premium;
+- Product × Subject × Lens, SVG local, navegação wide em header e gate manual confirmados;
+- implementação liberada a partir da Etapa 1, mantendo validação, commit e push por etapa.
+
+## Decisão do Plan Gate
+
+Aprovados em 2026-08-29:
 
 1. direção C — Learning Native com disciplina Quiet Premium;
 2. separação platform/lens e navegação wide em header;
 3. SVG local em vez de dependência de ícones;
 4. plano em oito etapas com commit/push por etapa;
 5. gate manual equivalente ao Plannotator.
-
-Sem aprovação explícita, a implementação visual permanece bloqueada por desenho, não por falha técnica.

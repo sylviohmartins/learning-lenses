@@ -1,6 +1,6 @@
 # Learning Lenses — contrato de produto do P0
 
-Status: proposta vinculante para a recuperação visual, sujeita ao Plan Gate humano.
+Status: contrato aprovado no Plan Gate em 2026-08-29.
 
 ## Propósito
 

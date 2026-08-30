@@ -1,7 +1,7 @@
 # Learning Lenses — contrato de design
 
-Status: direção recomendada no Plan Gate. Não implementada. Passa a reger a UI somente após aprovação
-humana explícita.
+Status: direção aprovada no Plan Gate em 2026-08-29. Rege a implementação e os gates da recuperação
+visual.
 
 ## Direção
 
