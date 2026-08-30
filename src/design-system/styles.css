@@ -578,42 +578,53 @@ p {
   transition: width 200ms ease;
 }
 .story-header {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
+}
+.story-header .eyebrow {
+  color: var(--platform-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 .story-header h1 {
-  max-width: 660px;
-  margin: 8px 0 0;
-  font-size: clamp(2.5rem, 10vw, 4.7rem);
-  line-height: 0.95;
+  max-width: 620px;
+  margin: 10px 0 0;
+  font-family: var(--ui);
+  font-size: clamp(2.1rem, 8vw, 3.65rem);
+  font-weight: 760;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
 }
 .episode-hook {
-  max-width: 650px;
-  padding-left: 16px;
-  border-left: 3px solid var(--primary);
-  color: var(--muted);
-  font-size: 1.05rem;
+  max-width: 600px;
+  margin-bottom: 0;
+  color: var(--platform-foreground);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 650;
+  line-height: 1.55;
 }
 .coach-note {
-  margin: 20px 0 26px;
+  margin: 22px 0 18px;
   padding: 14px 16px;
-  border: 1px dashed var(--authority);
-  background: #edf5f5;
-  color: #164d55;
+  border-radius: 10px;
+  background: var(--lens-reveal);
+  color: var(--lens-authority);
 }
 .coach-note p {
   margin: 4px 0 0;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
 }
 .conversation {
-  margin: 32px 0 40px;
+  margin: 32px 0 44px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 .message {
-  max-width: 88%;
+  max-width: 94%;
   display: flex;
-  gap: 11px;
+  gap: 10px;
   align-items: flex-start;
 }
 .message:nth-child(even) {
@@ -621,42 +632,47 @@ p {
   flex-direction: row-reverse;
 }
 .message__avatar {
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--foreground);
   border-radius: 50%;
-  background: var(--background);
-  font-weight: 850;
+  background: var(--lens-character);
+  color: var(--lens-accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 .message > div {
   padding: 13px 15px 14px;
-  border: 1px solid var(--line-dark);
-  border-radius: 4px 10px 10px 10px;
-  background: #fff;
+  border-radius: 12px;
+  background: var(--platform-surface);
 }
 .message:nth-child(even) > div {
-  border-radius: 10px 4px 10px 10px;
-  background: #f0e4e6;
+  background: var(--lens-narrative);
 }
 .message h3 {
-  margin: 0 0 4px;
+  margin: 0 0 5px;
   font-family: var(--ui);
-  color: var(--primary);
-  font-size: 0.76rem;
+  color: var(--lens-accent-strong);
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
 }
 .message p {
   margin: 0;
-  line-height: 1.5;
+  font-family: var(--editorial);
+  font-size: 1.04rem;
+  line-height: 1.55;
 }
 .message--lia > div {
-  border-color: #7da8ae;
-  background: #edf5f5;
+  background: var(--lens-reveal);
+}
+.message--lia .message__avatar {
+  background: var(--lens-reveal);
+  color: var(--lens-authority);
 }
 .message--lia h3 {
-  color: var(--authority);
+  color: var(--lens-authority);
 }
 
 .interaction {
@@ -868,20 +884,25 @@ textarea {
 }
 .truth-reveal {
   margin: 42px 0 22px;
-  padding: 26px 20px;
-  border: 1px solid var(--authority);
-  border-top-width: 6px;
-  background: #edf5f5;
+  padding: 24px 20px;
+  border-radius: 12px;
+  background: var(--lens-reveal);
 }
 .truth-reveal__label {
-  color: var(--authority);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.13em;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--lens-authority);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }
 .truth-reveal h2 {
-  margin: 10px 0 12px;
-  font-size: 2rem;
+  margin: 12px 0;
+  font-family: var(--ui);
+  font-size: clamp(1.55rem, 5vw, 2rem);
+  font-weight: 740;
+  line-height: 1.15;
 }
 .truth-reveal ul {
   padding-left: 20px;
@@ -892,18 +913,19 @@ textarea {
 }
 .truth-reveal__note {
   padding-top: 12px;
-  border-top: 1px solid #a8c5c9;
-  color: #315e65;
+  border-top: 1px solid color-mix(in srgb, var(--lens-authority) 28%, transparent);
+  color: var(--lens-authority);
   font-size: 0.78rem;
 }
 .episode-reveal > blockquote {
   margin: 28px 0;
-  padding: 20px 0;
-  border-top: 1px solid var(--foreground);
-  border-bottom: 1px solid var(--foreground);
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--lens-narrative);
   font-family: var(--editorial);
-  font-size: 1.45rem;
+  font-size: clamp(1.2rem, 4vw, 1.45rem);
   font-style: italic;
+  line-height: 1.45;
 }
 .episode-footer {
   margin-top: 24px;
@@ -922,9 +944,9 @@ textarea {
 .source-drawer {
   width: min(100%, 520px);
   height: 100%;
-  padding: 24px 20px 48px;
+  padding: 28px 20px 48px;
   overflow-y: auto;
-  background: var(--background);
+  background: var(--platform-surface);
   box-shadow: -12px 0 40px rgb(0 0 0 / 0.15);
   animation: drawer 200ms ease-out;
 }
@@ -935,27 +957,35 @@ textarea {
   gap: 12px;
 }
 .source-drawer h2 {
-  margin: 6px 0 0;
-  font-size: 2rem;
+  margin: 8px 0 0;
+  font-family: var(--ui);
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  font-weight: 740;
+  line-height: 1.15;
+}
+.source-drawer .eyebrow {
+  color: var(--platform-muted);
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 .source-drawer__intro {
-  color: var(--muted);
+  margin: 18px 0 24px;
+  color: var(--platform-muted);
 }
 .source-entry {
   padding: 20px 0 26px;
-  border-top: 1px solid var(--line-dark);
+  border-top: 1px solid var(--platform-border);
 }
 .source-entry__type {
-  color: var(--authority);
-  font-size: 0.7rem;
+  color: var(--lens-authority);
+  font-size: 0.74rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 .source-entry h3 {
-  margin: 7px 0 14px;
-  font-family: var(--editorial);
-  font-size: 1.35rem;
+  margin: 8px 0 16px;
+  font-family: var(--ui);
+  font-size: 1.16rem;
+  line-height: 1.35;
 }
 .source-entry dl {
   margin: 0 0 18px;
@@ -1384,7 +1414,7 @@ textarea {
     padding: 30px;
   }
   .message {
-    max-width: 76%;
+    max-width: 82%;
   }
   .home-return {
     max-width: 960px;

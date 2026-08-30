@@ -1,10 +1,10 @@
 # Plano persistente — P0 Visual Recovery
 
 - Última atualização: 2026-08-29
-- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 2 validada; Etapa 3 em preparação**
+- Estado: **IMPLEMENTAÇÃO APROVADA — Etapa 3 validada; Etapa 4 em preparação**
 - Branch: `main`
 - Baseline funcional: `b8ed404`
-- UI alterada nesta fase: **não**
+- UI alterada nesta fase: **sim, conforme direção aprovada**
 
 Este arquivo é o equivalente simples e versionado a `planning-with-files`: concentra plano, findings,
 progresso, decisões, problemas, gates e validações para que a tarefa não dependa do contexto da sessão.
@@ -371,6 +371,22 @@ Antes de propagar e antes do ship, todos precisam passar:
 - validação: lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS, visual E2E 1/1 e
   seleção de fluxos/axe 4/4 PASS;
 - próxima etapa: Episode proving ground.
+
+### 2026-08-29 — Etapa 3: Episode proving ground
+
+- escala monumental e serif global do título substituídas por hierarquia sans, contida e legível;
+- hook, coach e conversa reorganizados para a narrativa liderar com uma única linguagem visual;
+- serif ficou restrita à voz dos personagens e ao closing hook;
+- speakers foram preservados com avatares e superfícies discretas de personagem/autoridade;
+- reveal, continuidade e drawer de fontes foram integrados aos tokens da lente, sem filetes pesados;
+- símbolos Unicode de fechar, link externo e continuidade foram substituídos pelo SVG local;
+- começo, conversa, interaction, feedback/reveal e drawer foram exercitados nos sete viewports;
+- inspeção visual dedicada em 320×568 e 1440×900 confirmou legibilidade, hierarquia e ausência de
+  overflow;
+- validação: lint PASS, typecheck PASS, 10 arquivos/40 testes PASS, build PASS, visual E2E 1/1 e
+  seleção de fluxo/axe/reduced motion 3/3 PASS;
+- conteúdo, fontes, ordem pedagógica, persistência e engine permaneceram intactos;
+- próxima etapa: Assessment proving ground.
 
 ## Decisão do Plan Gate
 

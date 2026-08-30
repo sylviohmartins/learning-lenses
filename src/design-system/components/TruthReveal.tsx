@@ -1,8 +1,13 @@
 import type { TruthBlock } from "@/content/model";
+import { Icon } from "@/design-system/primitives/Icon";
+
 export function TruthReveal({ truth }: { truth: TruthBlock }) {
   return (
     <section className="truth-reveal">
-      <span className="truth-reveal__label">REGRA REAL</span>
+      <span className="truth-reveal__label">
+        <Icon name="info" size={18} />
+        Regra real
+      </span>
       <h2>{truth.title}</h2>
       <p>{truth.body}</p>
       {truth.items && (

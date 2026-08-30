@@ -3,6 +3,7 @@ import { getSource } from "@/content";
 import { sourceNeedsUpdate } from "@/domain/knowledge/freshness";
 import { useApp } from "@/app/providers/AppProvider";
 import { Button } from "./Button";
+import { Icon } from "@/design-system/primitives/Icon";
 
 export function SourceDrawer({ sourceIds }: { sourceIds: string[] }) {
   const [open, setOpen] = useState(false);
@@ -42,6 +43,7 @@ export function SourceDrawer({ sourceIds }: { sourceIds: string[] }) {
   return (
     <>
       <Button ref={triggerRef} variant="secondary" onClick={() => setOpen(true)}>
+        <Icon name="info" size={18} />
         De onde saiu essa fofoca?
       </Button>
       {open && (
@@ -60,7 +62,7 @@ export function SourceDrawer({ sourceIds }: { sourceIds: string[] }) {
           >
             <header>
               <div>
-                <span className="eyebrow">FONTES OFICIAIS</span>
+                <span className="eyebrow">Fontes oficiais</span>
                 <h2 id="source-title">O que sustenta esta regra</h2>
               </div>
               <button
@@ -72,7 +74,7 @@ export function SourceDrawer({ sourceIds }: { sourceIds: string[] }) {
                   triggerRef.current?.focus();
                 }}
               >
-                ×
+                <Icon name="close" title="Fechar" />
               </button>
             </header>
             <p className="source-drawer__intro">
@@ -118,7 +120,7 @@ export function SourceDrawer({ sourceIds }: { sourceIds: string[] }) {
                       rel="noreferrer"
                       onClick={() => openSource(source.id)}
                     >
-                      Abrir fonte oficial <span aria-hidden="true">↗</span>
+                      Abrir fonte oficial <Icon name="external-link" size={18} />
                     </a>
                   </article>
                 );
