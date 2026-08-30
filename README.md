@@ -136,3 +136,5 @@ de acessibilidade; o código do participante é opcional e deve ser pseudônimo.
   para dois ciclos de usabilidade.
 - [docs/research/LEARNING_PILOT.md](./docs/research/LEARNING_PILOT.md) — desenho do piloto, rubricas e
   regras de decisão.
+- [docs/research/EXPERIMENTS_AND_ROADMAP_GATES.md](./docs/research/EXPERIMENTS_AND_ROADMAP_GATES.md)
+  — pré-registro dos experimentos e gates para P1/P2.
